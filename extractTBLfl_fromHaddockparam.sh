@@ -1,4 +1,4 @@
-# Li Xue
+# Li Xue (L.Xue@uu.nl)
 # Sep. 16th, 2015
 #
 # extract tbl files from a haddockparam.web
