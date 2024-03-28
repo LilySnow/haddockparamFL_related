@@ -16,7 +16,7 @@ use utf8;
 
 my $haddockparamFL=shift @ARGV;
 
-if ( -z $haddockparamFL ){
+if ( !defined  $haddockparamFL ){
     print "\n\nUsage: extractPDBfl_fromHaddockparam.pl haddockparameter_file\n\n";
     exit;
 }
@@ -33,7 +33,6 @@ while(<INPUT>){
     s/[\n\r]//mg;
     if (/\"raw_pdb\"\s*:\s*[\'\"]{1}(.+)[\'\"]{1}\s*,/){
     #"raw_pdb": "ATOM      1  N   ... \nATOM     2..."
-     print($_);
      $num ++;
 
      my @content = split(/\\n/,$1);
