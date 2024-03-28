@@ -24,16 +24,16 @@ if ( -z $haddockparamFL ){
 #-- start
 my $randnum = rand(100);
 my $tmpFL = "/tmp/$haddockparamFL.$randnum.tmp";
-system("egrep 'pdbdata' $haddockparamFL > $tmpFL") == 0 or die ("Failed:$!");
+system("egrep 'raw_pdb' $haddockparamFL > $tmpFL") == 0 or die ("Failed:$!");
 
 open(INPUT, "<$haddockparamFL")or die ("Cannot open $haddockparamFL:$!");
 
 my $num =0;
 while(<INPUT>){
     s/[\n\r]//mg;
-
-    if (/pdbdata\s*=\s*[\'\"]{1}(.+)[\'\"]{1},/){
-    # pdbdata = "ATOM      1  CB .... \n",
+    if (/\"raw_pdb\"\s*:\s*[\'\"]{1}(.+)[\'\"]{1}\s*,/){
+    #"raw_pdb": "ATOM      1  N   ... \nATOM     2..."
+     print($_);
      $num ++;
 
      my @content = split(/\\n/,$1);

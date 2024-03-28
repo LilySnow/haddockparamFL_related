@@ -54,8 +54,8 @@ my $num =0;
 while(<INPUT>){
     s/[\n\r]//mg;
 
-    if (/^(\s*pdbdata\s*=\s*[\'\"]{1})(.+)([\'\"]{1},\s*)$/){
-    # pdbdata = "ATOM      1  CB .... \n",
+    if (/^(\s*\"raw_pdb\":\s*[\'\"]{1})(.+)([\'\"]{1},\s*)$/){
+    #"raw_pdb": "ATOM      1  N   ... \nATOM     2..."
      $num ++;
 
      if ($num != $pdbFL_num){
